@@ -23,12 +23,6 @@ function getScreenshots(e) {
 					description = description.replace(/\n/g, "<br>");
 					description = description.replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a>');
 					$("<p class='video-description'>"+description+"</p>").insertAfter("#ytvideo");
-					$.ajax({
-						type: "POST",
-						url: "submit.php",
-						data: {'url': e, 'title': data.items[0].snippet.title},
-						cache: false,
-					});
 					document.cookie = "url="+o[2]+";path=/";
 		  },
 		  error: function(jqXHR, textStatus, errorThrown) {
